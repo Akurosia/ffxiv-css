@@ -29,6 +29,8 @@ Open [`demo/index.html`](demo/index.html) for the live component gallery.
 
 Every push to `main` runs [`.github/workflows/gh-pages.yml`](.github/workflows/gh-pages.yml). It assembles the contents of `demo/` together with the root toolkit files and publishes that site at the root of the `gh-pages` branch. Enable GitHub Pages in the repository settings with `gh-pages` as the deployment branch. The published site therefore uses `index.html` at the Pages root while source files remain organized under `demo/`.
 
+The workflow rewrites the demo’s local `../ffxiv.css` and `../ffxiv-colors.css` references to root-relative published paths. This is necessary because the Pages artifact is intentionally flattened; local `demo/index.html` continues to use parent-relative paths when opened from the source tree.
+
 ## Try it
 
 Open `demo/index.html` in a modern browser. No install or build step. Use the class playground to select an element and variant, edit its content or classes, toggle disabled states, and copy the resulting HTML. Copy buttons support a fallback for local files, subject to browser clipboard permissions.

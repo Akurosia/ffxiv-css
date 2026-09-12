@@ -27,6 +27,11 @@ jobs:
           mkdir -p site
           cp -R demo/. site/
           cp ffxiv.css ffxiv-colors.css LICENSE README.md site/
+          # The source demo is nested; the published site is flattened to the Pages root.
+          sed -i 's#\.\./ffxiv\.css#ffxiv.css#g; s#\.\./ffxiv-colors\.css#ffxiv-colors.css#g' site/index.html
+          cat > site/favicon.svg <<'EOF'
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#202020"/><path d="M32 7l6.5 18.5L57 32l-18.5 6.5L32 57l-6.5-18.5L7 32l18.5-6.5z" fill="#d8bb7d"/></svg>
+          EOF
 
       - name: Publish gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
