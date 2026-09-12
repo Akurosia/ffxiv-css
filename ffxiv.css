@@ -122,3 +122,181 @@
   @media (prefers-reduced-motion: reduce) { .xiv *, .xiv *::after { transition: none !important; } }
   @media (forced-colors: active) { .xiv-check input, .xiv-radio input, .xiv-switch input { appearance: auto; } }
 }
+
+/* Theme presets. CSS interpretations of the eight game styles, not texture reproductions. */
+@layer xiv {
+  .xiv-navbar { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding: 16px; min-width: 0; color: var(--xiv-text); background: linear-gradient(var(--xiv-surface-top), var(--xiv-surface-deep)); border: 1px solid var(--xiv-border); border-radius: var(--xiv-radius); box-shadow: inset 0 0 0 2px var(--xiv-surface-deep); font: 14px/1.5 var(--xiv-font); }
+  .xiv-navbar-brand { color: var(--xiv-gold-bright); text-decoration: none; font: 18px Georgia, serif; overflow-wrap: anywhere; max-width: 100%; padding: 6px; }
+  .xiv-navbar-links { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; flex: 1 1 240px; min-width: 0; }
+  .xiv-nav-link { display: block; padding: 8px 12px; border: 1px solid transparent; border-radius: 4px; color: var(--xiv-text); text-decoration: none; max-width: 100%; overflow-wrap: anywhere; }
+  .xiv-nav-link:hover, .xiv-nav-link[aria-current] { color: var(--xiv-gold-bright); background: var(--xiv-selection); border-color: var(--xiv-border); }
+  .xiv-navbar--compact { padding: 8px 12px; gap: 10px; border-radius: 4px; }
+  .xiv-navbar--compact .xiv-nav-link { padding: 5px 10px; font-size: 12px; }
+  .xiv-navbar--vertical { flex-direction: column; align-items: stretch; width: 260px; max-width: 100%; }
+  .xiv-navbar--vertical .xiv-navbar-links { flex: none; flex-direction: column; align-items: stretch; }
+  .xiv-navbar--vertical .xiv-nav-link[aria-current] { box-shadow: inset 3px 0 var(--xiv-gold); }
+}
+@layer xiv {
+  :root, [data-xiv-theme="Dark"] {
+    --xiv-bg: #181818;
+    --xiv-surface: #292929;
+    --xiv-surface-deep: #202020;
+    --xiv-surface-top: #393939;
+    --xiv-input-bg: #171717;
+    --xiv-text: #e8e5dc;
+    --xiv-muted: #aaa79e;
+    --xiv-gold: #cab582;
+    --xiv-gold-bright: #f0deb0;
+    --xiv-border: #69665b;
+    --xiv-scheme: dark;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #f39b95;
+  }
+  [data-xiv-theme="Light"] {
+    --xiv-bg: #c6c3ba;
+    --xiv-surface: #dedbd2;
+    --xiv-surface-deep: #c4c0b6;
+    --xiv-surface-top: #f0ede5;
+    --xiv-input-bg: #efede6;
+    --xiv-text: #302e29;
+    --xiv-muted: #615d52;
+    --xiv-gold: #75603a;
+    --xiv-gold-bright: #554324;
+    --xiv-border: #918774;
+    --xiv-scheme: light;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #9c3535;
+  }
+  [data-xiv-theme="ClassicFF"] {
+    --xiv-bg: #090e39;
+    --xiv-surface: #172460;
+    --xiv-surface-deep: #0b123f;
+    --xiv-surface-top: #293d87;
+    --xiv-input-bg: #080f35;
+    --xiv-text: #f1f0e9;
+    --xiv-muted: #b9c1de;
+    --xiv-gold: #dccb91;
+    --xiv-gold-bright: #fff0b7;
+    --xiv-border: #8c90b5;
+    --xiv-scheme: dark;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #f39b95;
+  }
+  [data-xiv-theme="ClearBlue"] {
+    --xiv-bg: #142a3a;
+    --xiv-surface: #27495ddf;
+    --xiv-surface-deep: #183447e8;
+    --xiv-surface-top: #496a80df;
+    --xiv-input-bg: #122b3c;
+    --xiv-text: #e2eff5;
+    --xiv-muted: #a8c3d1;
+    --xiv-gold: #dbcca3;
+    --xiv-gold-bright: #f3e5bc;
+    --xiv-border: #7c9ba9;
+    --xiv-scheme: dark;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #f39b95;
+  }
+  [data-xiv-theme="ClearWhite"] {
+    --xiv-bg: #d9dce0;
+    --xiv-surface: #f1f3f2df;
+    --xiv-surface-deep: #d9dfdfe8;
+    --xiv-surface-top: #ffffffdf;
+    --xiv-input-bg: #f5f7f6;
+    --xiv-text: #303a3c;
+    --xiv-muted: #53656a;
+    --xiv-gold: #706044;
+    --xiv-gold-bright: #51432a;
+    --xiv-border: #96a7aa;
+    --xiv-scheme: light;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #9c3535;
+  }
+  [data-xiv-theme="ClearGreen"] {
+    --xiv-bg: #1c302a;
+    --xiv-surface: #314f43df;
+    --xiv-surface-deep: #21392fe8;
+    --xiv-surface-top: #527363df;
+    --xiv-input-bg: #192f26;
+    --xiv-text: #e8f0df;
+    --xiv-muted: #b4c6b7;
+    --xiv-gold: #d7c893;
+    --xiv-gold-bright: #f1e3b1;
+    --xiv-border: #899c83;
+    --xiv-scheme: dark;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #f39b95;
+  }
+  [data-xiv-theme="ClearGrey"] {
+    --xiv-bg: #282b2e;
+    --xiv-surface: #43494ddf;
+    --xiv-surface-deep: #2d3337e8;
+    --xiv-surface-top: #666e72df;
+    --xiv-input-bg: #22282c;
+    --xiv-text: #e9ecea;
+    --xiv-muted: #b8c0c2;
+    --xiv-gold: #d6c9a4;
+    --xiv-gold-bright: #f0e5c6;
+    --xiv-border: #939a98;
+    --xiv-scheme: dark;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #f39b95;
+  }
+  [data-xiv-theme="ClearPink"] {
+    --xiv-bg: #ddcbd3;
+    --xiv-surface: #f1dfe8df;
+    --xiv-surface-deep: #d6becce8;
+    --xiv-surface-top: #fff0f7df;
+    --xiv-input-bg: #f9eaf1;
+    --xiv-text: #49303f;
+    --xiv-muted: #755769;
+    --xiv-gold: #7b5945;
+    --xiv-gold-bright: #593c2c;
+    --xiv-border: #af879b;
+    --xiv-scheme: light;
+    --xiv-focus: var(--xiv-gold);
+    --xiv-selection: color-mix(in srgb, var(--xiv-gold) 20%, var(--xiv-surface));
+    --xiv-danger: #9c3535;
+  }
+  .xiv-panel:not(.xiv-panel--parchment) { background: linear-gradient(145deg, var(--xiv-surface-top), var(--xiv-surface-deep) 80%); }
+  .xiv-panel--glass:not(.xiv-panel--parchment) { background: color-mix(in srgb, var(--xiv-surface) 75%, transparent); }
+  [data-xiv-theme^="Clear"] .xiv-panel { backdrop-filter: blur(14px); }
+  .xiv-title { text-shadow: none; border-bottom-color: var(--xiv-border); }
+  .xiv-button { color: var(--xiv-text); background: linear-gradient(var(--xiv-surface-top), var(--xiv-surface) 48%, var(--xiv-surface-deep) 51%, var(--xiv-surface)); border-color: var(--xiv-border); text-shadow: none; box-shadow: inset 0 0 0 2px var(--xiv-surface-deep), inset 0 3px 5px #ffffff20; }
+  .xiv-button--primary { color: var(--xiv-gold-bright); background: linear-gradient(var(--xiv-selection), var(--xiv-surface-deep)); border-color: var(--xiv-gold); }
+  .xiv-button--danger { color: var(--xiv-danger); background: color-mix(in srgb, var(--xiv-danger) 12%, var(--xiv-surface)); border-color: var(--xiv-danger); }
+  .xiv-button--ghost { background: transparent; box-shadow: none; }
+  .xiv-button:hover:not(:disabled):not([aria-disabled='true']) { box-shadow: inset 0 0 0 2px var(--xiv-surface-deep), inset 0 0 12px color-mix(in srgb, var(--xiv-gold) 20%, transparent); }
+  .xiv-input, .xiv-select, .xiv-textarea { background: var(--xiv-input-bg); border-color: var(--xiv-border); color-scheme: var(--xiv-scheme); box-shadow: inset 0 2px 4px #0002; }
+  .xiv-input::placeholder, .xiv-textarea::placeholder { color: var(--xiv-muted); }
+  .xiv-input:focus, .xiv-select:focus, .xiv-textarea:focus { border-color: var(--xiv-focus); }
+  .xiv-input[aria-invalid='true'] { border-color: var(--xiv-danger); }
+  .xiv-dropdown-trigger { background: linear-gradient(var(--xiv-surface-top), var(--xiv-surface-deep)); border-color: var(--xiv-border); }
+  .xiv-dropdown-trigger:hover, .xiv-dropdown[open] > .xiv-dropdown-trigger { background: var(--xiv-selection); border-color: var(--xiv-focus); }
+  .xiv-dropdown-menu { background: var(--xiv-surface-deep); border-color: var(--xiv-border); scrollbar-color: var(--xiv-gold) var(--xiv-surface-deep); }
+  .xiv-dropdown-option:hover:not(:has(input:disabled)), .xiv-dropdown-option:focus-within, .xiv-dropdown-option:has(input:checked) { color: var(--xiv-text); background: var(--xiv-selection); border-color: var(--xiv-border); }
+  .xiv-check input, .xiv-radio input, .xiv-switch input { background: var(--xiv-input-bg); border-color: var(--xiv-border); }
+  .xiv-check input:checked { background: #877243; border-color: var(--xiv-gold); }
+  .xiv-radio input:checked::after { background: var(--xiv-gold); }
+  .xiv-switch input:checked { background: #877243; border-color: var(--xiv-gold); }
+  .xiv-tabs { border-color: var(--xiv-border); }
+  .xiv-tab { background: linear-gradient(var(--xiv-surface-top), var(--xiv-surface-deep)); border-color: var(--xiv-border); color: var(--xiv-muted); }
+  .xiv-tab[aria-selected='true'] { background: var(--xiv-selection); color: var(--xiv-gold-bright); box-shadow: inset 0 2px var(--xiv-gold); }
+  .xiv-tooltip-content { color: var(--xiv-text); background: var(--xiv-surface-deep); border-color: var(--xiv-border); }
+  .xiv-table th, .xiv-table td { border-bottom-color: var(--xiv-border); }
+  .xiv-table tbody tr:hover { background: var(--xiv-selection); }
+  .xiv-badge { color: var(--xiv-gold-bright); background: var(--xiv-selection); border-color: var(--xiv-border); }
+  .xiv-badge--blue { color: light-dark(#245773, #a9dbed); background: light-dark(#d9e8ee, #283d48); }
+  .xiv-badge--green { color: light-dark(#345b2f, #b2d7aa); background: light-dark(#dce8d7, #303d29); }
+  .xiv-badge--red { color: light-dark(#873c39, #ecaba5); background: light-dark(#f1ddda, #442f2d); }
+  [data-xiv-theme] { color-scheme: var(--xiv-scheme); }
+  .xiv-notice { color: light-dark(#285266, #c9e4ed); background: light-dark(#dce9ee, #223741); }
+  .xiv-notice--quest { color: var(--xiv-gold-bright); background: var(--xiv-selection); border-color: var(--xiv-border); border-left-color: var(--xiv-gold); }
+}

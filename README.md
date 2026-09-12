@@ -107,3 +107,21 @@ The demo's Custom dropdowns section includes copyable single-select and multi-se
 Native radio inputs share a unique `name` per dropdown; checkboxes can share a name to submit multiple values. Input type determines single vs. multiple behavior. Native details and inputs still function without JavaScript. The menu expands in document flow and scrolls within a bounded height. Keyboard: Enter/Space opens the summary, ArrowDown/ArrowUp enters the options, native radio arrows or checkbox Tab/Space select, Enter confirms a radio, and Escape closes. Disabled options retain native disabled behavior.
 
 Focus styling uses `--xiv-focus` (muted gold) independently of semantic blue badges or informational colors.
+
+### Eight interface styles
+
+Apply `data-xiv-theme` to your `.xiv` wrapper (or a nested component area). Supported values: `Dark`, `Light`, `ClassicFF`, `ClearBlue`, `ClearWhite`, `ClearGreen`, `ClearGrey`, `ClearPink`.
+
+```html
+<div class="xiv" data-xiv-theme="ClearGreen">
+  <section class="xiv-panel">
+    <h2 class="xiv-title">Duty information</h2>
+    <input class="xiv-input" aria-label="Character name">
+    <button class="xiv-button">Confirm</button>
+  </section>
+</div>
+```
+
+The demo has all eight styles side by side and a selector that updates component examples and remembers your choice locally. The documentation shell and exact Stain dye values remain unchanged. Presets cover surfaces, readable foregrounds, fields, native/custom dropdowns, buttons, tabs, notices, selection controls, and tooltips. Semantic HP/MP/EXP colors retain their meaning. Parchment is an explicit surface variant and retains its parchment appearance.
+
+These are CSS interpretations of the game styles, not extracted game textures or verified pixel-exact themes. Clear styles use translucent surfaces; their appearance depends on the background. Themes are included in `ffxiv.css`; no additional theme file is needed.

@@ -90,7 +90,7 @@ tabs.forEach((tab, index) => {
     if (next !== undefined) { event.preventDefault(); selectTab(next); tabs[next].focus(); }
   });
 });
-const links = [...document.querySelectorAll('nav a')];
+const links = [...document.querySelectorAll('.sidebar nav a')];
 const observer = new IntersectionObserver(entries => {
   const current = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
   if (current) links.forEach(link => { const active = link.hash === `#${current.target.id}`; link.classList.toggle('active', active); if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); });
@@ -147,4 +147,26 @@ document.querySelectorAll('[data-dropdown-copy]').forEach(button => {
     dropdown.removeAttribute('open');
     copy(dropdown.outerHTML, button, 'Dropdown HTML copied. Include ffxiv.css and xiv.js inside an .xiv wrapper.');
   });
+});
+
+const themeSelector = $('#interface-theme');
+const themeTargets = [...document.querySelectorAll('.component-card, .preview-stage, #dialog')];
+function applyTheme(theme) {
+  if (![...themeSelector.options].some(option => option.value === theme)) return;
+  themeSelector.value = theme;
+  themeTargets.forEach(target => { target.dataset.xivTheme = theme; });
+  $('#theme-usage').textContent = `<div class="xiv" data-xiv-theme="${theme}">…</div>`;
+  try { localStorage.setItem('xiv-interface-theme', theme); } catch { /* Storage is optional. */ }
+}
+themeSelector.addEventListener('change', () => applyTheme(themeSelector.value));
+document.querySelectorAll('[data-choose-theme]').forEach(button => button.addEventListener('click', () => {
+  applyTheme(button.dataset.chooseTheme);
+  toast(`${themeSelector.selectedOptions[0].textContent} applied to the component examples.`);
+}));
+$('#copy-theme').addEventListener('click', event => copy($('#theme-usage').textContent, event.currentTarget, 'Theme wrapper copied. Include ffxiv.css.'));
+let savedTheme;
+try { savedTheme = localStorage.getItem('xiv-interface-theme'); } catch { /* Use Dark. */ }
+applyTheme(savedTheme || 'Dark');
+document.querySelectorAll('[data-navbar-copy]').forEach(button => {
+  button.addEventListener('click', () => copy(document.getElementById(button.dataset.navbarCopy).innerHTML, button));
 });
