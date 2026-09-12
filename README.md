@@ -1,10 +1,33 @@
 # Eorzea UI
 
-A dependency-free, FFXIV-inspired CSS toolkit. Neutral charcoal beveled windows, antique gold accents, native form controls, and an interactive component gallery. Original CSS artwork and an optional palette from the game’s Stain sheet. No external fonts.
+A dependency-free, FFXIV-inspired CSS toolkit. Neutral charcoal beveled windows, antique gold accents, native form controls, and an optional palette from the game’s Stain sheet. No external fonts.
+
+## Repository layout and imports
+
+The reusable toolkit stays at the repository root. The complete interactive reference page lives in [`demo/`](demo/index.html), keeping demo-only code separate from production assets.
+
+| File | Required | Purpose |
+| --- | --- | --- |
+| `ffxiv.css` | Yes | Core components, themes, controls, navigation, cards, accordions, notices, tables, and tokens. |
+| `ffxiv-colors.css` | Optional | Named FFXIV Stain colors as `--xiv-stain-*` variables. |
+| `demo/xiv.js` | Optional | Custom dropdown behavior, keyboard handling, outside-click closing, and form-reset synchronization. |
+| `demo/demo.css` | No | Demo/documentation layout only. |
+| `demo/demo.js` | No | Playground, theme switcher, copy buttons, tabs, and demo interactions only. |
+| `demo/stains.js` | No | Bundled data used by the demo dye browser. |
+
+Minimal setup:
+
+```html
+<link rel="stylesheet" href="ffxiv.css">
+<link rel="stylesheet" href="ffxiv-colors.css">
+<script src="demo/xiv.js" defer></script>
+```
+
+Open [`demo/index.html`](demo/index.html) for the live component gallery.
 
 ## Try it
 
-Open `index.html` in a modern browser. No install or build step. Use the class playground to select an element and variant, edit its content or classes, toggle disabled states, and copy the resulting HTML. Copy buttons support a fallback for local files, subject to browser clipboard permissions.
+Open `demo/index.html` in a modern browser. No install or build step. Use the class playground to select an element and variant, edit its content or classes, toggle disabled states, and copy the resulting HTML. Copy buttons support a fallback for local files, subject to browser clipboard permissions.
 
 ## Use it
 
