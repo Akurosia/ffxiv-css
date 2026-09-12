@@ -113,6 +113,35 @@
   .xiv-tooltip > :not(.xiv-tooltip-content) { grid-row: 2; justify-self: start; }
   .xiv-tooltip-content { grid-row: 1; grid-column: 1; min-width: 0; overflow-wrap: anywhere; padding: 9px 12px; background: #1b1b1b; color: #e9e3d3; border: 1px solid #b3a071; border-radius: 4px; font-size: 12px; box-shadow: inset 0 1px 0 #ffffff10; opacity: 0; visibility: hidden; pointer-events: none; }
   .xiv-tooltip:hover .xiv-tooltip-content, .xiv-tooltip:focus-within .xiv-tooltip-content { opacity: 1; visibility: visible; }
+  .xiv-accordion { border: 1px solid var(--xiv-border); border-radius: var(--xiv-radius); background: var(--xiv-surface-deep); overflow: hidden; }
+  .xiv-accordion + .xiv-accordion { margin-top: 8px; }
+  .xiv-accordion-trigger { display: flex; align-items: center; gap: 10px; width: 100%; padding: 13px 16px; color: var(--xiv-text); background: var(--xiv-surface); border: 0; text-align: left; font: 500 14px var(--xiv-font); cursor: pointer; }
+  .xiv-accordion-trigger::before { content: '▸'; color: var(--xiv-gold); transition: transform .16s ease; }
+  .xiv-accordion[open] .xiv-accordion-trigger::before { transform: rotate(90deg); }
+  .xiv-accordion-trigger:hover { background: var(--xiv-selection); color: var(--xiv-gold-bright); }
+  .xiv-accordion-content { padding: 14px 16px 18px 42px; color: var(--xiv-muted); border-top: 1px solid var(--xiv-border); }
+  .xiv-nav { display: flex; flex-direction: column; gap: 3px; padding: 8px; border: 1px solid var(--xiv-border); border-radius: var(--xiv-radius); background: var(--xiv-surface-deep); }
+  .xiv-nav-section { padding: 12px 12px 6px; color: var(--xiv-muted); font: 10px/1.4 var(--xiv-font); letter-spacing: .14em; text-transform: uppercase; }
+  .xiv-nav-item { display: flex; align-items: center; gap: 9px; min-height: 36px; padding: 7px 11px; color: var(--xiv-text); border: 1px solid transparent; border-radius: 4px; text-decoration: none; cursor: pointer; }
+  .xiv-nav-item:hover, .xiv-nav-item[aria-current='page'], .xiv-nav-item.is-active { color: var(--xiv-gold-bright); background: var(--xiv-selection); border-color: var(--xiv-border); }
+  .xiv-nav-item .xiv-nav-icon { flex: 0 0 18px; }
+  .xiv-nav-nested { margin-left: 18px; padding-left: 8px; border-left: 1px solid var(--xiv-border); }
+  .xiv-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; color: var(--xiv-text); background: var(--xiv-surface); border: 1px solid var(--xiv-border); border-radius: var(--xiv-radius); box-shadow: 0 5px 16px #0003; }
+  .xiv-card-media { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; background: var(--xiv-surface-deep); }
+  .xiv-card-body { display: grid; gap: 7px; padding: 16px; }
+  .xiv-card-title { margin: 0; color: var(--xiv-gold-bright); font: 400 18px Georgia, serif; }
+  .xiv-card-meta { color: var(--xiv-muted); font-size: 11px; }
+  .xiv-button--icon { width: 36px; height: 36px; min-height: 36px; padding: 0; border-radius: 50%; font-size: 16px; }
+  .xiv-button--icon-square { border-radius: 4px; }
+  .xiv-button-group { display: inline-flex; align-items: stretch; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--xiv-border); border-radius: 7px; background: var(--xiv-surface-deep); }
+  .xiv-button-group > .xiv-button { border-radius: 4px; }
+  .xiv-button-group > .xiv-button[aria-pressed='true'], .xiv-button-group > .xiv-button.is-active { color: var(--xiv-gold-bright); background: var(--xiv-selection); border-color: var(--xiv-gold); }
+  .xiv-notice--info { color: #c9e4ed; background: #223741; border-color: #5d8290; border-left-color: #7eb6c8; }
+  .xiv-notice--success { color: #d1e7c7; background: #293c29; border-color: #668360; border-left-color: #9fc28f; }
+  .xiv-notice--warning { color: #f0ddb0; background: #433a27; border-color: #927c47; border-left-color: #e0b95e; }
+  .xiv-notice--danger { color: #f0c0bb; background: #422b2c; border-color: #8f5552; border-left-color: #d57970; }
+  .xiv-table-wrapper { width: 100%; overflow-x: auto; border: 1px solid var(--xiv-border); border-radius: var(--xiv-radius); -webkit-overflow-scrolling: touch; }
+  .xiv-table-wrapper > .xiv-table { min-width: 620px; border: 0; }
   .xiv-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
   .xiv-table th { color: var(--xiv-gold); font-weight: 500; background: #ffffff04; }
   .xiv-table th, .xiv-table td { padding: 12px; border-bottom: 1px solid #ffffff12; }

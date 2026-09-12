@@ -164,3 +164,4 @@ html { scroll-padding-top: 110px; }
 .component-card[data-xiv-theme] .install-code, .component-card.install-code[data-xiv-theme] pre { color: var(--xiv-text); }
 .xiv-dialog[data-xiv-theme] p { color: var(--xiv-muted); }
 @media (max-width:760px) { .theme-gallery { grid-template-columns: 1fr; } }
+.card-art { background: radial-gradient(circle at 75% 25%, #efd58a 0 8%, transparent 9%), linear-gradient(145deg, #203748, #92734b 55%, #263b31); } .notice-gallery { display: grid; gap: 7px; } .component-row { margin-top: 20px; }
