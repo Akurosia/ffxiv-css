@@ -170,3 +170,30 @@ applyTheme(savedTheme || 'Dark');
 document.querySelectorAll('[data-navbar-copy]').forEach(button => {
   button.addEventListener('click', () => copy(document.getElementById(button.dataset.navbarCopy).innerHTML, button));
 });
+// Forgiving hover and click behavior for nested navigation menus.
+document.querySelectorAll('.xiv-navbar-submenu').forEach(menu => {
+  let closeTimer;
+  const open = () => { clearTimeout(closeTimer); menu.classList.add('is-open'); };
+  const close = () => { clearTimeout(closeTimer); closeTimer = setTimeout(() => { if (!menu.matches(':hover') && !menu.contains(document.activeElement)) menu.classList.remove('is-open'); }, 260); };
+  menu.addEventListener('mouseenter', open);
+  menu.addEventListener('mouseleave', close);
+  menu.querySelector(':scope > .xiv-nav-link')?.addEventListener('click', event => {
+    event.preventDefault();
+    menu.classList.toggle('is-open');
+    if (menu.classList.contains('is-open')) open(); else close();
+  });
+  menu.addEventListener('focusin', open);
+  menu.addEventListener('focusout', close);
+});
+document.querySelectorAll('[data-navbar-copy]').forEach(button => {
+  const host = document.getElementById(button.dataset.navbarCopy);
+  const code = document.createElement('pre');
+  code.className = 'component-code';
+  code.textContent = host.innerHTML.trim();
+  const details = document.createElement('details');
+  details.className = 'code-disclosure';
+  const summary = document.createElement('summary');
+  summary.textContent = 'Show HTML code';
+  details.append(summary, code);
+  host.after(details);
+});
